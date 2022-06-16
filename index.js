@@ -2,14 +2,13 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
 const util = require("util");
-// const generateMarkdown = require(./)
 
-const writeFileAsync = (filename, data) => {
-    fs.writeFile(filename, data, function (err) {
-        if (err) console.log(err);
-    })
-    return true;
-}
+// const writeFileAsync = (filename, data) => {
+//     fs.writeFile(filename, data, function (error) {
+//         if (error) console.log(err);
+//     })
+//     return true;
+// }
 
 const questions = () => inquirer.prompt ([
     {
@@ -30,7 +29,7 @@ const questions = () => inquirer.prompt ([
     {
         type: 'input',
         name: 'description',
-        message: 'Describe your project',
+        message: 'Describe the what, why, and how of your project.',
     },
     {
         type: 'input',
@@ -45,12 +44,12 @@ const questions = () => inquirer.prompt ([
     {
         type: 'input',
         name: 'contributions',
-        message: 'Contributiond: ',
+        message: 'Do you want others to contribute to your project, if so, include guidelines.',
     },
     {
         type: 'input',
         name: 'test',
-        message: 'Tests:',
+        message: 'If tests have been run on your application, provide them here.',
       },
     {
       type: 'checkbox',
@@ -72,20 +71,23 @@ const questions = () => inquirer.prompt ([
     },
     
   ])
-//   .then((data) => {
-//     const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
 
-//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-//       err ? console.log(err) : console.log('Success!')
-//     );
-//   });
+//using the inquirer module, prompt the user for answer to create the README
+inquirer.prompt(questions)
+  .then((data) => {
+    console.log(data);
+    createAReadme(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 // //keys username, email, title, description, installation, usage, contributing, test, license
 
-function generateMarkdown(data) {
-    return
+function createAReadme(data) {
+    // return
     `#Project Title: ${data.title}
-    ##Description: ${data.description}
+    ##Project Description: ${data.description}
     
     ##Table of Contents
     *[Installation](#installation)
@@ -95,16 +97,27 @@ function generateMarkdown(data) {
     *[License]{#license}
     *[Questions]{#questions}
 
-    ###Installation
-
+    ###Installation Instructions:
+    ${data.installation}
     ###Usage
-
+    ${data.usage}
     ###Contributions
-
+    ${data.contributions}
     ###Tests
-
+    ${data.test}
     ###License
-    
+    This project is licensed under ${data.license}
     ###Questions
     If you have any questions about the README, please reach out to ${data.email} or through Github [Github](https://github.com/${data.username})`
+
 }
+
+const writeToFile = () => fs.writeFile(`${fileName}`, createAReadme, (error) => error ? console.log(error) : console.log('Success!'));
+
+//   .then((data) => {
+//     const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
+
+//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+//       err ? console.log(err) : console.log('Success!')
+//     );
+//   });
