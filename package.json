@@ -1,0 +1,14 @@
+{
+  "name": "create_a_readme",
+  "version": "1.0.0",
+  "description": "A js and intro Node dynammically created Readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anne McCorkle",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
