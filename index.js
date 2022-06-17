@@ -1,16 +1,13 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const path = require("path");
-const util = require("util");
+// const util = require("util");
+const generateMarkdown = require("./generateMarkdown.js");
 
-// const writeFileAsync = (filename, data) => {
-//     fs.writeFile(filename, data, function (error) {
-//         if (error) console.log(err);
-//     })
-//     return true;
-// }
+//async and promisfy??
 
-const questions = () => inquirer.prompt ([
+
+//using the inquirer module, prompt the user for answer to create the README
+const questions = [
     {
         type: 'input',
         name: 'username',
@@ -70,49 +67,30 @@ const questions = () => inquirer.prompt ([
         default: 'npm install',
     },
     
-  ])
+  ]
 
-//using the inquirer module, prompt the user for answer to create the README
-inquirer.prompt(questions)
+//initialize the app
+const init = function() {
+  inquirer.prompt(questions)
   .then((data) => {
     console.log(data);
-    createAReadme(data);
+    writeToFile("README.md", generateMarkdown(data))
   })
-  .catch((error) => {
-    console.log(error);
-  });
-
-// //keys username, email, title, description, installation, usage, contributing, test, license
-
-function createAReadme(data) {
-    // return
-    `#Project Title: ${data.title}
-    ##Project Description: ${data.description}
-    
-    ##Table of Contents
-    *[Installation](#installation)
-    *[Usage]{#usage}
-    *[Contributions]{#contributions}
-    *[Tests]{#test}
-    *[License]{#license}
-    *[Questions]{#questions}
-
-    ###Installation Instructions:
-    ${data.installation}
-    ###Usage
-    ${data.usage}
-    ###Contributions
-    ${data.contributions}
-    ###Tests
-    ${data.test}
-    ###License
-    This project is licensed under ${data.license}
-    ###Questions
-    If you have any questions about the README, please reach out to ${data.email} or through Github [Github](https://github.com/${data.username})`
-
 }
 
-const writeToFile = () => fs.writeFile(`${fileName}`, createAReadme, (error) => error ? console.log(error) : console.log('Success!'));
+//write readme file
+const writeToFile = function (fileName, data) {
+  fs.writeFile(fileName, data, (err) => {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("Successful README generating");
+  })
+}
+
+init();
+
+// const writeToFile = () => fs.writeFile(`${fileName}`, createAReadme, (error) => error ? console.log(error) : console.log('Success!'));
 
 //   .then((data) => {
 //     const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
