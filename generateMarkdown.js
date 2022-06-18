@@ -5,24 +5,46 @@ function generateMarkdown(data) {
 console.log(data);
 return `# Project Title: ${data.title}
 ${data.license}
-## Project Description: ${data.description}
-## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
+
+## Project Description:
+${data.description}
+
+
+\`\`\`
+AS a Developer
+I WANT
+SO THAT
+
+\`\`\`
+
+## Table of Contents:
+* [Installation:](#installation)
+* [Usage:](#usage)
+* [Tests:](#tests)
 * [Contributions](#contributions)
-* [Tests](#test)
-* [License](#license)
-* [Questions](#questions)
-### Installation
+* [Questions:](#questions)
+
+
+## Installation:
 ${data.installation}
-### Usage
+<br>
+
+## Usage: 
 ${data.usage}
-### Contributions
-${data.contributions}
-### Tests
+<br>
+
+## Tests:
 ${data.test}
-### Questions
-If you have any questions about the README, please reach out to ${data.email} or through Github [Github](https://github.com/${data.username})`
+<br>
+
+## Contributions:
+This was made by ${data.contributions}
+<br>
+
+### Questions:
+* If you have any questions about the README, please reach out to me.
+* Email: ${data.email} 
+* Github: (https://github.com/${data.username})`
 }
 
 module.exports = generateMarkdown;
