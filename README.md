@@ -42,6 +42,7 @@ WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 ```
 
-Images of the README
+Video of the README
 
-my links
+My [deployed link](!https://amccorkl.github.io/Generate_a_README/)
+My [Github file](!https://github.com/amccorkl/Generate_a_README)
