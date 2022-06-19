@@ -1,7 +1,7 @@
 # Generate A README
 
 ## Description
-\`\`\`
+```md
 Using Node.js, this README generator will allow a developer to quickly create their own README using a preset template. It will also allow other developers to contribute to the project.
 
 The application uses the [Inquirer package](https://www.npmjs.com/package/inquirer) and took research input from [Professional README Guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide). 
