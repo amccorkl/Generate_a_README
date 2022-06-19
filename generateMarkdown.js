@@ -3,7 +3,6 @@
 
 
 function generateMarkdown(data) {
-console.log(data);
 return `# Project Title: ${data.title}
 ${data.license}
 

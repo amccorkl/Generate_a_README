@@ -3,7 +3,6 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./generateMarkdown");
 const path = require("path");
 
-//async and promisfy??
 
 //using the inquirer module, prompt the user for answer to create the README including an array object for a license choice
 const questions = [
@@ -88,7 +87,6 @@ const questions = [
 //initialize the app
 const init = function () {
   inquirer.prompt(questions).then((data) => {
-    // console.log(data);
     writeToFile("README.md", generateMarkdown(data));
   });
 };
