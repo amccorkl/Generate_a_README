@@ -38,5 +38,5 @@ This was made by
 
 ### Questions:
 * If you have any questions about the README, please reach out to me.
-*  
+* Email:  
 * Github: (https://github.com/)
