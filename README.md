@@ -42,7 +42,7 @@ WHEN I click on the links in the Table of Contents
 THEN I am taken to the corresponding section of the README
 ```
 
-Video of the README
+Video of the README: [Generate A README](!https://drive.google.com/file/d/1KDMlNrsKX2sUb9IRpdYKW_pdDW-iaFOq/view?usp=sharing) 
 
-My [deployed link](!https://amccorkl.github.io/Generate_a_README/)
-My [Github file](!https://github.com/amccorkl/Generate_a_README)
+My [deployed link](!https://amccorkl.github.io/Generate_a_README/) <br>
+My [Github repository](!https://github.com/amccorkl/Generate_a_README)
