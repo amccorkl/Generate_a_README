@@ -5,7 +5,7 @@ const path = require("path");
 
 //async and promisfy??
 
-//using the inquirer module, prompt the user for answer to create the README
+//using the inquirer module, prompt the user for answer to create the README including an array object for a license choice
 const questions = [
   {
     type: "input",

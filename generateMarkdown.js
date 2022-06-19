@@ -1,4 +1,5 @@
  //keys username, email, title, description, installation, usage, contributing, test, license
+// information is fed dynamiccally from the index.js prompts
 
 
 function generateMarkdown(data) {
